@@ -1,0 +1,271 @@
+:root {
+  --cell: 118px;
+  --gap: 14px;
+  --accent: #f59cda;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue",
+    Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji";
+  color: #db84c6;
+  background: radial-gradient(1200px 800px at 70% -20%, #e6d1dc, transparent),
+    #f7fafc;
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 20px;
+}
+
+.wrap {
+  width: min(680px, 95vw);
+  max-width: 100%;
+}
+
+h1 {
+  margin: 12px 0 8px;
+  font-size: clamp(22px, 3vw, 28px);
+  text-align: center;
+}
+
+.hud,
+.controls {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hud {
+  margin-bottom: 10px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 8px 12px;
+  box-shadow: 0 1px 0 rgba(49, 35, 43, 0.952);
+  font-size: clamp(14px, 2.5vw, 16px);
+}
+
+.badge strong {
+  font-variant-numeric: tabular-nums;
+}
+
+.pulse {
+  animation: pulse 0.35s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.controls {
+  margin: 8px 0 18px;
+}
+
+button,
+select {
+  background: var(--accent);
+  border-color: #c283a2;
+  color: white;
+  font: inherit;
+  border-radius: 12px;
+  border: 1px solid;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: transform 0.04s ease, box-shadow 0.12s ease,
+    border-color 0.12s ease;
+  font-size: clamp(14px, 2.5vw, 16px);
+}
+
+button:hover {
+  box-shadow: 0 8px 24px rgba(218, 159, 187, 0.722);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: #c283a2;
+  color: white;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, var(--cell));
+  gap: var(--gap);
+  justify-content: center;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.hole {
+  width: var(--cell);
+  height: var(--cell);
+  border: 2px solid #d1d5db;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(
+    ellipse at center,
+    #ffa5e1 0 35%,
+    #ffe0f5 36% 100%
+  );
+  cursor: pointer;
+  outline: none;
+  box-shadow: inset 0 8px 18px rgba(0, 0, 0, 0.25),
+    0 2px 0 rgba(255, 255, 255, 0.15);
+  transition: transform 0.1s ease;
+}
+
+.hole:hover {
+  transform: scale(1.02);
+}
+
+/* Mole graphic (pure CSS + gradient) */
+.hole::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6%;
+  transform: translateX(-50%) translateY(65%);
+  width: 74%;
+  height: 72%;
+  border-radius: 50% 50% 44% 44% / 56% 56% 44% 44%;
+  background: radial-gradient(
+    35% 40% at 35% 45%,
+    rgba(87, 42, 90, 0.775) 0 45%,
+    transparent 46%
+  );
+  box-shadow: 0 8px 20px rgba(135, 92, 134, 0.708);
+  opacity: 0;
+  transition: transform 0.12s linear, opacity 0.12s linear;
+  pointer-events: none;
+}
+
+.hole.mole::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2%);
+}
+
+.hole.hit {
+  animation: bonk 0.12s;
+}
+
+@keyframes bonk {
+  from {
+    filter: brightness(1.3);
+  }
+  to {
+    filter: none;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 560px) {
+  :root {
+    --cell: 96px;
+    --gap: 10px;
+  }
+
+  body {
+    padding: 10px;
+  }
+
+  .wrap {
+    width: 95vw;
+  }
+
+  .hud,
+  .controls {
+    gap: 8px;
+  }
+
+  .badge {
+    padding: 6px 10px;
+  }
+
+  button,
+  select {
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --cell: 80px;
+    --gap: 8px;
+  }
+
+  .hud,
+  .controls {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .controls {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    --cell: 70px;
+    --gap: 6px;
+  }
+
+  .board {
+    grid-template-columns: repeat(3, var(--cell));
+  }
+
+  .hole {
+    border-radius: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

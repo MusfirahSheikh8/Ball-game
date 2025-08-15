@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Whack-a-Mole</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Whack-a-Mole</h1>
+
+      <div class="hud" aria-live="polite">
+        <div class="badge">Score: <strong id="score">0</strong></div>
+        <div class="badge">Time: <strong id="time">30</strong>s</div>
+        <div class="badge">High: <strong id="high">0</strong></div>
+      </div>
+
+      <div class="controls">
+        <button id="start" class="btn-primary">Start</button>
+        <button id="stop" disabled>Stop</button>
+        <select id="difficulty" title="Difficulty">
+          <option value="easy">Easy</option>
+          <option value="normal" selected>Normal</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+
+      <div class="board" id="grid" aria-label="Whack a mole board">
+        <button class="hole" data-id="0" aria-label="hole 1"></button>
+        <button class="hole" data-id="1" aria-label="hole 2"></button>
+        <button class="hole" data-id="2" aria-label="hole 3"></button>
+        <button class="hole" data-id="3" aria-label="hole 4"></button>
+        <button class="hole" data-id="4" aria-label="hole 5"></button>
+        <button class="hole" data-id="5" aria-label="hole 6"></button>
+        <button class="hole" data-id="6" aria-label="hole 7"></button>
+        <button class="hole" data-id="7" aria-label="hole 8"></button>
+        <button class="hole" data-id="8" aria-label="hole 9"></button>
+      </div>
+
+      <p class="sr-only" id="instructions">
+        Press Start, then tap a hole when the mole pops up to score points
+        before time runs out.
+      </p>
+    </div>
+
+    <script src="index.js" defer></script>
+  </body>
+</html>
