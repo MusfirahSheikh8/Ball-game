@@ -35,6 +35,7 @@ function randInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+//Moles appearing in different hole
 function pickHole() {
   let idx;
   do {
@@ -65,6 +66,51 @@ function setHighIfNeeded() {
 }
 function loadHigh() {
   els.high.textContent = localStorage.getItem("whack_hi") || 0;
+}
+
+// --- Game Over Function
+function gameOver() {
+  stopGame();
+
+  // Create custom alert overlay
+  const overlay = document.createElement("div");
+  overlay.className = "game-over-overlay";
+
+  const alertBox = document.createElement("div");
+  alertBox.className = "game-over-alert";
+
+  const title = document.createElement("h2");
+  title.textContent = "Game Over!";
+
+  const message = document.createElement("p");
+  message.textContent = `You tapped the wrong hole! Final Score: ${state.score}`;
+
+  const restartBtn = document.createElement("button");
+  restartBtn.textContent = "Play Again";
+  restartBtn.className = "restart-btn";
+  restartBtn.addEventListener("click", () => {
+    document.body.removeChild(overlay);
+    startGame();
+  });
+
+  const closeBtn = document.createElement("button");
+  closeBtn.textContent = "Close";
+  closeBtn.className = "close-btn";
+  closeBtn.addEventListener("click", () => {
+    document.body.removeChild(overlay);
+  });
+
+  const buttonContainer = document.createElement("div");
+  buttonContainer.className = "alert-buttons";
+  buttonContainer.appendChild(restartBtn);
+  buttonContainer.appendChild(closeBtn);
+
+  alertBox.appendChild(title);
+  alertBox.appendChild(message);
+  alertBox.appendChild(buttonContainer);
+  overlay.appendChild(alertBox);
+
+  document.body.appendChild(overlay);
 }
 
 // --- Mole show/hide
@@ -108,12 +154,17 @@ function startTimer() {
 els.grid.addEventListener("pointerdown", (e) => {
   const hole = e.target.closest(".hole");
   if (!state.running || !hole) return;
+
   if (hole.classList.contains("mole")) {
+    // ✅ Correct hole (mole present) → increase score
     hole.classList.remove("mole");
     hole.classList.add("hit");
     setTimeout(() => hole.classList.remove("hit"), 120);
     setScore(state.score + 1);
     state.activeHole = -1;
+  } else {
+    // ❌ Wrong hole → game over
+    gameOver();
   }
 });
 
