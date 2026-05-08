@@ -1,43 +1,39 @@
 # 🎱 Ball Game
 
-An interactive browser-based pool/ball physics game built with JavaScript and HTML Canvas featuring smooth gameplay, collision detection, realistic ball movement, and responsive user interactions.
+An interactive browser-based pool/ball physics game built with JavaScript and HTML Canvas featuring smooth gameplay, realistic ball movement, collision detection, and responsive user interactions.
 
 ---
 
 # 🚀 Live Demo
 
-🔗 https://ball-game-six-dun.vercel.app/
-
----
-
-# ✨ Features
-
-- Real-time ball physics
-- Collision detection system
-- Smooth rendering animations
-- Interactive cue controls
-- Dynamic gameplay mechanics
-- Browser-based gameplay
-- Responsive game canvas
-- Lightweight and fast performance
+[https://ball-game-six-dun.vercel.app/](https://ball-game-six-dun.vercel.app/)
 
 ---
 
 # 🛠️ Tech Stack
 
 ## Frontend
-- JavaScript (ES6)
-- HTML5 Canvas
-- CSS3
+
+* JavaScript (ES6)
+* HTML5 Canvas
+* CSS3
 
 ## Deployment
-- Vercel
+
+* Vercel
 
 ---
 
-# 🎮 Gameplay
+# ✨ Features
 
-Players can interact with the cue ball and control shot direction and force to simulate a realistic pool-style gaming experience directly in the browser.
+* Real-time ball physics
+* Collision detection system
+* Smooth rendering animations
+* Interactive gameplay mechanics
+* Dynamic cue controls
+* Browser-based gaming experience
+* Lightweight and fast performance
+* Responsive game canvas
 
 ---
 
@@ -58,95 +54,101 @@ Ball-game/
 ├── index.html
 ├── script.js
 └── README.md
+```
 
 ---
 
-⚙️ Installation
-Clone the repository
+# ⚙️ Installation
+
+## 1. Clone the repository
+
+```bash
 git clone https://github.com/MusfirahSheikh8/Ball-game.git
 cd Ball-game
+```
 
 ---
 
-▶️ Run Locally
+# ▶️ Run Locally
 
-Simply open:
+Open the project with Live Server or simply run:
 
+```bash
 index.html
-
-Or use Live Server in VS Code for better development experience.
-
----
-
-🧠 Concepts Used
-Game loop architecture
-Collision detection
-Vector calculations
-Physics simulation
-Canvas rendering
-Event handling
-Real-time animation
+```
 
 ---
 
-🚀 Future Improvements
-Multiplayer support
-AI opponent
-Sound effects
-Mobile touch controls
-Scoreboard system
-Match timer
-Advanced physics engine
-Difficulty levels
-Power meter
-Game settings panel
-📈 Performance Optimizations
-requestAnimationFrame rendering
-Optimized collision calculations
-Lightweight rendering pipeline
-Smooth animation updates
+# 🎮 Gameplay
+
+Players can control the cue ball, adjust direction and force, and interact with realistic physics-based mechanics to simulate a pool-style gaming experience directly in the browser.
 
 ---
 
-🌍 Deployment
+# 🧠 Concepts Used
 
-This project is deployed on Vercel.
+This project demonstrates understanding of:
 
----
-
-🏷️ Recommended GitHub Topics
-javascript
-game-development
-canvas
-physics-engine
-pool-game
-billiards
-web-game
-frontend
-interactive-ui
-vercel
+* Game loop architecture
+* Physics simulation
+* Collision detection
+* Vector mathematics
+* Canvas rendering
+* Real-time animation
+* Event handling
+* Interactive game mechanics
 
 ---
 
-🤝 Contributing
+# 📈 Performance Optimizations
+
+* requestAnimationFrame rendering
+* Optimized collision calculations
+* Lightweight rendering pipeline
+* Smooth animation updates
+
+---
+
+# 🚀 Future Improvements
+
+* Multiplayer support
+* AI opponent
+* Sound effects
+* Mobile touch controls
+* Scoreboard system
+* Match timer
+* Difficulty levels
+* Power meter
+* Game settings panel
+* Advanced physics engine
+
+---
+
+# 🌍 Deployment
+
+This project is deployed on Vercel for fast and seamless browser access.
+
+---
+
+# 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome.
 
-Feel free to fork this repository and submit improvements.
+Feel free to fork the repository and submit improvements.
 
 ---
 
-📜 License
+# 📜 License
 
 This project is licensed under the MIT License.
 
 ---
 
-👩‍💻 Author
+# 👩‍💻 Author
 
 Developed by Musfirah Sheikh
 
----
-
 GitHub:
-https://github.com/MusfirahSheikh8
+
+[https://github.com/MusfirahSheikh8](https://github.com/MusfirahSheikh8)
+
