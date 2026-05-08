@@ -89,12 +89,6 @@ Real-time animation
 
 ---
 
-📸 Screenshots
-
-<img width="1178" height="1100" alt="image" src="https://github.com/user-attachments/assets/89edc84c-f2b0-4f59-9b7c-cf6fa4fe7c84" />
-
----
-
 🚀 Future Improvements
 Multiplayer support
 AI opponent
